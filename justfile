@@ -18,7 +18,7 @@ doc_files := "examples/*.ts **/*.md"
 source_files := "./*.ts"
 
 # Test Files
-test_files := "./*_test.ts"
+test_files := "./*test.ts"
 
 # All files
 all_files := "./*.ts ./scripts/*.ts"
@@ -38,8 +38,8 @@ all: chores && build
 bench:
 	deno bench {{dev_flags}} {{prod_flags}}
 
-# build binary, bundle, node module
-build: _build-bin _build-lib _build-npm
+# build bundle, node module
+build:  _build-lib _build-npm
 
 # Run CI/CD Related tasks only
 ci: _check test bench build
@@ -71,10 +71,6 @@ update: && deps
 #
 # Helper tasks
 #
-
-# Build the bin
-_build-bin: _cache
-	deno compile {{prod_flags}} -o bin/hello_deno ./main.ts
 
 # Build the lib
 _build-lib: _cache
