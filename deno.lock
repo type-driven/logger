@@ -1,6 +1,7 @@
 {
   "version": "2",
   "remote": {
+    "https://deno.land/std@0.137.0/fmt/colors.ts": "30455035d6d728394781c10755351742dd731e3db6771b1843f9b9e490104d37",
     "https://deno.land/std@0.140.0/_util/assert.ts": "e94f2eb37cebd7f199952e242c77654e43333c1ac4c5c700e929ea3aa5489f74",
     "https://deno.land/std@0.140.0/_util/os.ts": "3b4c6e27febd119d36a416d7a97bd3b0251b77c88942c8f16ee5953ea13e2e49",
     "https://deno.land/std@0.140.0/bytes/bytes_list.ts": "67eb118e0b7891d2f389dad4add35856f4ad5faab46318ff99653456c23b025d",
@@ -127,6 +128,7 @@
     "https://deno.land/x/deno_graph@0.26.0/lib/snippets/deno_graph-de651bc9c240ed8d/src/deno_apis.js": "41192baaa550a5c6a146280fae358cede917ae16ec4e4315be51bef6631ca892",
     "https://deno.land/x/deno_graph@0.26.0/lib/types.d.ts": "2bbdbf895321d1df8db511fab00160a0211c09c2e7cac56c522dd6e9ed6d2ef7",
     "https://deno.land/x/deno_graph@0.26.0/mod.ts": "11131ae166580a1c7fa8506ff553751465a81c263d94443f18f353d0c320bc14",
+    "https://deno.land/x/denologger@v1.0.1/mod.ts": "1fa480b2ae0399ebd9e385df94aa6abfae9fba1a6946ee2b9e1185d9e0d1dab5",
     "https://deno.land/x/dnt@0.35.0/lib/compiler.ts": "3259975196f44391525e4e3e96c1f95c3a90dd25ec31a1948ccd7c6b71323d76",
     "https://deno.land/x/dnt@0.35.0/lib/compiler_transforms.ts": "cbb1fd5948f5ced1aa5c5aed9e45134e2357ce1e7220924c1d7bded30dcd0dd0",
     "https://deno.land/x/dnt@0.35.0/lib/mod.deps.ts": "30367fc68bcd2acf3b7020cf5cdd26f817f7ac9ac35c4bfb6c4551475f91bc3e",
