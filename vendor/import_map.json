@@ -1,8 +1,8 @@
 {
   "imports": {
-    "https://deno.land/std/log/mod.ts": "./deno.land/std@0.187.0/log/mod.ts",
+    "https://deno.land/std/log/mod.ts": "./deno.land/std@0.189.0/log/mod.ts",
     "https://deno.land/x/denologger/mod.ts": "./deno.land/x/denologger@v1.0.1/mod.ts",
-    "https://deno.land/x/dnt/mod.ts": "./deno.land/x/dnt@0.35.0/mod.ts",
+    "https://deno.land/x/dnt/mod.ts": "./deno.land/x/dnt@0.36.0/mod.ts",
     "https://deno.land/x/semver/mod.ts": "./deno.land/x/semver@v1.4.1/mod.ts",
     "https://deno.land/x/fun/decoder.ts": "./deno.land/x/fun@v.2.0.0-alpha.11/decoder.ts",
     "std/testing/asserts.ts": "./deno.land/std@0.182.0/testing/asserts.ts",
