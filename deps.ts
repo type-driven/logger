@@ -6,6 +6,7 @@ export {
 } from "https://deno.land/std@0.182.0/log/mod.ts";
 export {
   BaseHandler,
+  ConsoleHandler,
   FileHandler,
 } from "https://deno.land/std@0.182.0/log/handlers.ts";
 export {

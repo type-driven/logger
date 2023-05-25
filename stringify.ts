@@ -28,7 +28,7 @@ function replacer(seen: WeakSet<{}>) {
   };
 }
 
-export default function stringify(object: unknown, indentation = 2) {
+export default function stringify(object: unknown, indentation = 0) {
   const seen = new WeakSet();
   return JSON.stringify(object, replacer(seen), indentation);
 }
