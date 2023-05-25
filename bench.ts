@@ -1,4 +1,4 @@
-import log from "./mod.ts";
+import { logger } from "./mod.ts";
 import * as builtin from "https://deno.land/std/log/mod.ts";
 import * as denoLogger from "https://deno.land/x/denologger/mod.ts";
 import { pino as P } from "npm:pino";
@@ -26,5 +26,5 @@ Deno.bench("pino", { group: "perf" }, () => {
 });
 
 Deno.bench("logger", { baseline: true, group: "perf" }, () => {
-  log.debug("hello", payload);
+  logger.debug("hello", payload);
 });

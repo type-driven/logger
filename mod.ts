@@ -18,6 +18,4 @@ setup({
 const log = getLogger();
 log.debug("Application logger loaded.", { config });
 
-export default log;
-export const stringify = <T extends unknown>(v: T) =>
-  JSON.stringify(v, null, 4);
+export const logger = log;

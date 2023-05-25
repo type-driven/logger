@@ -2,6 +2,9 @@
 // deno-lint-ignore ban-types
 function replacer(seen: WeakSet<{}>) {
   return function (_key: string, value: unknown) {
+    if (value instanceof Error) {
+      return Error.toString();
+    }
     if (value !== null && typeof value === "object") {
       if (seen.has(value)) {
         return "[Circular]";
