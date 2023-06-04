@@ -1,13 +1,14 @@
 {
   "metadata": {
     "minDenoVersion": "1.30",
-    "name": "hello_deno",
-    "version": "1.0.0"
+    "name": "typedriven_logger",
+    "version": "0.1.0"
   },
   "lint": {
     "include": ["**/*.ts"],
     "exclude": ["vendor/"]
   },
   "lock": true,
+  "imports": {},
   "importMap": "./vendor/import_map.json"
 }
