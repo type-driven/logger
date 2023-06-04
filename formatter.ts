@@ -13,6 +13,6 @@ export const pretty = (record: LogRecord) =>
 
 export const json = (record: LogRecord) =>
   stringify(
-    { ...record, datetime: record.datetime.toISOString(), args: record.args },
+    { ...record, datetime: record.datetime.getTime(), args: record.args },
     0
   );

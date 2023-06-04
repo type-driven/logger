@@ -2,7 +2,7 @@ import * as builtin from "https://deno.land/std/log/mod.ts";
 import * as denoLogger from "https://deno.land/x/denologger/mod.ts";
 import { pino as P } from "npm:pino";
 import { getLogger, setup } from "./mod.ts";
-import { console_handler } from "./console_handler.ts";
+import { json_handler } from "./json_handler.ts";
 
 const payload = {
   hello: "deno",
@@ -23,16 +23,16 @@ Deno.bench("denoLogger", { group: "perf" }, () => {
 const pino = P();
 
 Deno.bench("pino", { group: "perf" }, () => {
-  pino.info("hello", payload);
+  pino.info(payload, "hello");
 });
 
 setup({
   handlers: {
-    console: console_handler,
+    json: json_handler,
   },
   loggers: {
     default: {
-      handlers: ["console"],
+      handlers: ["json"],
       level: "INFO",
     },
   },
