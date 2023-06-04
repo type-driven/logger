@@ -9,5 +9,6 @@
     "exclude": ["vendor/"]
   },
   "lock": true,
+  "imports": {},
   "importMap": "./vendor/import_map.json"
 }
