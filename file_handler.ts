@@ -6,3 +6,8 @@ export const file_handler = new FileHandler(config.level, {
   filename: config.filename,
   formatter: json,
 });
+
+export const pretty_file_handler = new FileHandler(config.level, {
+  filename: config.filename,
+  formatter: json,
+});
