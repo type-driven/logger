@@ -1,5 +1,6 @@
 import { config } from "./config.ts";
 import { BaseHandler, LogRecord } from "./deps.ts";
+import { json } from "./formatter.ts";
 import stringify from "./stringify.ts";
 
 export class JsonHandler extends BaseHandler {
@@ -29,21 +30,6 @@ export class JsonHandler extends BaseHandler {
   }
 }
 
-const hostname = Deno.hostname();
-const pid = Deno.pid;
-
-const argsToObject = ({ args, datetime }: LogRecord) =>
-  args.reduce((o: {}, a) => (typeof a === "object" ? { ...o, ...a } : o), {
-    datetime: datetime.getTime(),
-    pid,
-    hostname,
-  });
-
 export const json_handler = new JsonHandler(config.level, {
-  formatter: (logRecord) => {
-    return stringify({
-      ...logRecord,
-      ...argsToObject(logRecord),
-    });
-  },
+  formatter: json,
 });
