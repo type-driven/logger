@@ -5,14 +5,9 @@
     "version": "1.0.0"
   },
   "lint": {
-    "files": {
-      "include": ["**/*"],
-      "exclude": ["vendor/*"]
-    }
+    "include": ["**/*.ts"],
+    "exclude": ["vendor/"]
   },
   "lock": true,
-  "imports": {
-    "std/": "https://deno.land/std@0.182.0/"
-  },
   "importMap": "./vendor/import_map.json"
 }

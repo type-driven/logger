@@ -1,12 +1,30 @@
 import { formatDate, LogRecord } from "./deps.ts";
 import stringify from "./stringify.ts";
 
-export const formatter = (record: LogRecord) =>
+const hostname = Deno.hostname();
+const pid = Deno.pid;
+
+const argsToObject = ({ args, datetime }: LogRecord) =>
+  // deno-lint-ignore ban-types
+  args.reduce((o: {}, a) => (typeof a === "object" ? { ...o, ...a } : o), {
+    datetime: datetime.getTime(),
+    pid,
+    hostname,
+  });
+
+const prettyDate = ({ datetime }: LogRecord) =>
+  formatDate("yyyy MM dd mm:ss", datetime);
+
+export const pretty = (record: LogRecord) =>
   [
-    `[${record.levelName}] ${
-      formatDate("yyyy MM dd mm:ss", record.datetime)
-    } ${record.msg}`,
-    ...record.args.map((arg) =>
-      typeof arg === "object" ? stringify(arg, 4) : `${arg}`
-    ),
+    `${record.loggerName}:`,
+    `[${record.levelName}]`,
+    `${prettyDate(record)} ${record.msg}`,
+    stringify(argsToObject(record)),
   ].join(" ");
+
+export const json = (record: LogRecord) =>
+  stringify({
+    ...record,
+    ...argsToObject(record),
+  });

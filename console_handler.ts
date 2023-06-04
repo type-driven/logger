@@ -1,7 +1,11 @@
 import { config } from "./config.ts";
 import { ConsoleHandler } from "./deps.ts";
-import { formatter } from "./formatter.ts";
+import { json, pretty } from "./formatter.ts";
 
 export const console_handler = new ConsoleHandler(config.level, {
-  formatter,
+  formatter: json,
+});
+
+export const pretty_console_handler = new ConsoleHandler(config.level, {
+  formatter: pretty,
 });

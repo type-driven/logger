@@ -3,6 +3,7 @@ import {
   compose,
   DecodeError,
   Decoder,
+  draw,
   keyErr,
   leafErr,
   manyErr,
@@ -10,11 +11,12 @@ import {
   success,
 } from "https://deno.land/x/fun@v.2.0.0-alpha.11/decoder.ts";
 import { flow, Fn, pipe } from "https://deno.land/x/fun@v.2.0.0-alpha.11/fn.ts";
-import { parse as parseFlags } from "std/flags/mod.ts";
+import { parse as parseFlags } from "https://deno.land/std@0.190.0/flags/mod.ts";
 import {
   alt,
   chain,
   Either,
+  getOrElse,
   left,
   mapLeft,
   MonadEither,
@@ -287,4 +289,24 @@ export function bind<P extends string, A, B>(property: P, fn: (b: B) => A) {
       }
     >;
   };
+}
+
+export function handleDecodeError<A>(
+  dea: Either<DecodeError, A>,
+): Either<Error, A> {
+  return mapLeft(flow(draw, Error))(dea);
+}
+
+export function unwrapOrPanic<L, R>(either: Either<L, R>) {
+  return pipe(
+    either,
+    getOrElse<L, R>((e: L) => {
+      console.error("Error", e);
+      Deno.exit(1);
+    }),
+  );
+}
+
+export function extract<A>(konfig: Schema<A>) {
+  return pipe(konfig, run, handleDecodeError, unwrapOrPanic);
 }

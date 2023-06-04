@@ -3,3 +3,5 @@
 /lib
 /npm
 .DS_Store
+
+node_modules
