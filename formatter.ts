@@ -20,11 +20,13 @@ export const pretty = (record: LogRecord) =>
     `${record.loggerName}:`,
     `[${record.levelName}]`,
     `${prettyDate(record)} ${record.msg}`,
+    ...record.args.filter((a) => typeof a !== "object"),
     stringify(argsToObject(record), 4),
   ].join(" ");
 
 export const json = (record: LogRecord) =>
   stringify({
     ...record,
+    args: record.args.filter((a) => typeof a !== "object"),
     ...argsToObject(record),
   });
