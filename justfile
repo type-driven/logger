@@ -12,7 +12,7 @@ prod_flags := "--no-remote --import-map=./vendor/import_map.json"
 dep_flags := ""
 
 # Examples docs and such
-doc_files := "examples/*.ts **/*.md"
+doc_files := "examples/*.ts *.md"
 
 # Source files
 source_files := "./*.ts"
@@ -39,10 +39,10 @@ bench:
 	deno bench {{dev_flags}} {{prod_flags}}
 
 # build bundle, node module
-build:  _build-lib _build-npm
+build: _build-lib _build-npm
 
 # Run CI/CD Related tasks only
-ci: _check test bench build
+ci: _check test build
 
 cd: build && _publish-npm
 

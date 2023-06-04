@@ -5,7 +5,7 @@ import {
   flag,
   pipeline,
   schema,
-} from "https://deno.land/x/konfig@v0.1.2/mod.ts";
+} from "https://deno.land/x/konfig@v0.1.4/mod.ts";
 import { boolean } from "https://deno.land/x/fun/decoder.ts";
 import { pipe } from "https://deno.land/x/fun@v2.0.0-alpha.10/fn.ts";
 import { match } from "https://deno.land/x/fun@v.2.0.0-alpha.11/either.ts";

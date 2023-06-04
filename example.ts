@@ -1,5 +1,5 @@
 import { config } from "./config.ts";
-import { pretty_console_handler, console_handler } from "./console_handler.ts";
+import { console_handler, pretty_console_handler } from "./console_handler.ts";
 import { getLogger, setup } from "./mod.ts";
 
 setup({
@@ -37,5 +37,5 @@ logger.info(
   [],
   {},
   null,
-  undefined
+  undefined,
 );

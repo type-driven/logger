@@ -7,7 +7,6 @@ await emptyDir("./npm");
 await build({
   entryPoints: ["./mod.ts"],
   outDir: "./npm",
-  importMap: "./vendor/import_map.json",
   typeCheck: false,
   skipSourceOutput: true,
   test: true,
@@ -26,7 +25,6 @@ await build({
       url: "https://github.com/type-driven/hello_deno",
     },
   },
-  scriptModule: "cjs",
 });
 
 // post build steps
