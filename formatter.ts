@@ -20,7 +20,7 @@ export const pretty = (record: LogRecord) =>
     `${record.loggerName}:`,
     `[${record.levelName}]`,
     `${prettyDate(record)} ${record.msg}`,
-    stringify(argsToObject(record)),
+    stringify(argsToObject(record), 4),
   ].join(" ");
 
 export const json = (record: LogRecord) =>
