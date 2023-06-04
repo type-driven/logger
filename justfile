@@ -68,6 +68,10 @@ test: _clean
 update: && deps
 	just _udd "{{all_files}} deno.json"
 
+# Create Release
+release:
+	just run ./scripts/release.ts
+
 #
 # Helper tasks
 #

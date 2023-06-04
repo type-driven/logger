@@ -2,7 +2,7 @@
   "metadata": {
     "minDenoVersion": "1.30",
     "name": "typedriven_logger",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "lint": {
     "include": ["**/*.ts"],
