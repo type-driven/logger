@@ -1,15 +1,14 @@
 #!/usr/bin/env -S deno run --allow-env --allow-read --allow-run
 import {
   env,
+  extract,
   fallback,
   flag,
   pipeline,
   schema,
-} from "https://deno.land/x/konfig@v0.1.4/mod.ts";
+} from "https://deno.land/x/konfig@v0.2.0/mod.ts";
 import { boolean } from "https://deno.land/x/fun/decoder.ts";
 import { pipe } from "https://deno.land/x/fun@v2.0.0-alpha.10/fn.ts";
-import { match } from "https://deno.land/x/fun@v.2.0.0-alpha.11/either.ts";
-import { identity } from "https://deno.land/x/fun@v.2.0.0-alpha.11/fn.ts";
 import {
   DecodeError,
   draw,
@@ -21,21 +20,20 @@ const _throw = (cause: DecodeError) => {
 };
 const config = pipe(
   schema({
-    dry_run: pipeline(
+    dry_run: [
       env("DRY_RUN", boolean),
       flag("dry-run"),
       flag("D"),
       fallback(false),
-    ),
-    verbose: pipeline(
+    ],
+    verbose: [
       env("VERBOSE", boolean),
       flag("verbose"),
       flag("V"),
       fallback(false),
-    ),
+    ],
   }),
-  (config) => config.read(),
-  match(_throw, identity),
+  extract,
 );
 console.log("Config", config);
 
